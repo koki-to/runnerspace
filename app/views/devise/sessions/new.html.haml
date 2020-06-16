@@ -1,0 +1,18 @@
+.Home
+  .home
+    .contents
+      .container
+        %h3 ログイン
+        = render "devise/shared/links"
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .FormField
+            .FormField__label--normal
+              = f.label :email, "E-mail"
+            .FormField__input--normal
+              = f.email_field :email, autofocus: true, class: "text_area"
+            .FormField__label--normal
+              = f.label :password, "パスワード(8文字以上)"
+            .FormField__input--normal
+              = f.password_field :password, autocomplete: "off", class: "text_area"
+            .actions
+              = f.submit "ログイン", class: 'submit'

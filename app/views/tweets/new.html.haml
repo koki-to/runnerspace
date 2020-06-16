@@ -1,0 +1,23 @@
+= render partial: "header"
+.Home
+  .home
+    .contents
+      .container
+        = form_with(model: @tweet, local: true) do |f|
+          %h3 投稿する
+          .FormField
+            .FormField__label--normal
+              = f.label :title, "タイトル"
+            .FormField__label--form
+              = f.text_field :title, class: "text_area"
+            .FormField__label--normal
+              = f.label :text, "内容"
+            .FormField__label--form
+              = f.text_area :text, row: "6", class: "text_area"
+            .FormField__label--normal
+              = f.label :image, "画像" do
+                = icon('far', 'image')
+            .FormField__label--normal
+              = f.file_field :image, class: "none"
+            .FormField__submit
+              = f.submit "投稿する", class: 'submit'

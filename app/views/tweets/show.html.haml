@@ -1,0 +1,44 @@
+= render partial: "header"
+.Home
+  .home
+    .Content
+      .Post
+        .Post__image
+          - if @tweet.image.present?
+            = image_tag @tweet.image.url
+          - else
+            = image_tag "article1"
+        .Post__title
+          = link_to @tweet.title
+        .Post__text
+          = link_to @tweet.text
+        .Post__info
+          .article__info__icon
+            = image_tag @tweet.user.image.url
+          .article__info__name
+            = link_to @tweet.user.name, user_path(@tweet.user.id)
+          .article__info__star
+            = link_to "#" do
+              = icon 'fas', "star"
+          .article__info__like
+            = link_to "#" do
+              = icon 'fas', "heart"
+        .Post__bottom
+          - if user_signed_in? && current_user.id == @tweet.user_id
+            .Post__bottom__edit
+              = link_to '編集', edit_tweet_path(@tweet.id)
+            .Post__bottom__delete
+              = link_to '削除', tweet_path(@tweet.id), method: :delete
+        .Post__comment
+          - if current_user
+            = form_with(model: [@tweet, @comment], local: true) do |f|
+              = f.text_field :text, placeholder: "コメントする", class: "text_area"
+              = f.submit "送信", class: "Post__comment__submit"
+          - else
+            %h1 コメントの投稿には新規登録/ログインが必要です
+          .Post__comment__list
+            %h3 <コメント一覧>
+            - if @comments
+              - @comments.each do |comment|
+                = link_to comment.user.name, user_path(comment.user_id)
+                = comment.text
