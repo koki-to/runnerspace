@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
 
   def create
     if @tweet = Tweet.create(tweet_params)
-      redirect_to action: :index
+      redirect_to action: :index, notice: '投稿に成功しました'
     else
       render action: :new
     end
@@ -35,7 +35,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new
-    @comments = @tweet.comments.includes(:user)
+    @comments = @tweet.comments.includes(:user).order("created_at DESC")
   end
 
 

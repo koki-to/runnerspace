@@ -4,7 +4,7 @@
   %ul.header__nav
     -if user_signed_in?
       %li.header__nav__list
-        = link_to 'ユーザー一覧', "#"
+        = link_to 'ユーザー一覧', users_path
       %li.header__nav__list
         = link_to '投稿一覧', tweets_path
       %li.header__nav__list

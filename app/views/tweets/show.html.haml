@@ -36,9 +36,24 @@
               = f.submit "送信", class: "Post__comment__submit"
           - else
             %h1 コメントの投稿には新規登録/ログインが必要です
-          .Post__comment__list
             %h3 <コメント一覧>
+          .Post__comment__list
             - if @comments
               - @comments.each do |comment|
-                = link_to comment.user.name, user_path(comment.user_id)
-                = comment.text
+                - if comment.user_id == @tweet.user_id
+                  .Post__comment__list__host
+                    = link_to user_path(comment.user.id) do
+                      - if comment.user.image.present?
+                        = image_tag comment.user.image.url
+                      - else
+                        = image_tag "user1"
+                    = comment.text
+                - else
+                  .Post__comment__list__post
+                    = comment.created_at
+                    = comment.text
+                    = link_to user_path(comment.user.id) do
+                      - if comment.user.image.present?
+                        = image_tag comment.user.image.url
+                      - else
+                        = image_tag "user1"

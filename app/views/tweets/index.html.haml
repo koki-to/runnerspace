@@ -13,9 +13,10 @@
             = link_to tweet.title, tweet_path(tweet.id)
           .article__info
             .article__info__icon
-              = image_tag tweet.user.image.url
+              = link_to user_path(tweet.user.id) do
+                = image_tag tweet.user.image.url
             .article__info__name
-              = link_to tweet.user.name,"#"
+              = link_to tweet.user.name, user_path(tweet.user.id)
             .article__info__star
               = link_to "#" do
                 = icon 'fas', "star"
