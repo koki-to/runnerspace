@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
 
   def create
     if @tweet = Tweet.create(tweet_params)
-      redirect_to action: :index, notice: '投稿に成功しました'
+      redirect_to action: :index
     else
       render action: :new
     end
