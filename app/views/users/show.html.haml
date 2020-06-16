@@ -1,0 +1,43 @@
+= render partial: "tweets/header"
+.Home
+  .home
+    .Content
+      .Privacy
+        .Privacy__image
+          - if @user.image.present?
+            = image_tag @user.image.url
+          - else
+            = image_tag "user1"
+        .Privacy__name
+          = @user.name
+        .Privacy__introduction
+          = @user.introduction
+        - if user_signed_in? && current_user.id == @user.id
+          .Privacy__edit
+            = link_to "編集", edit_user_path(@user)
+        .Privacy__articles
+          = "#{@user.name}さんの投稿"
+        .articles
+          - @tweets.each do |tweet|
+            .article
+              .article__image
+                - if tweet.image.present?
+                  = image_tag tweet.image.url
+                - else
+                  = image_tag "article1"
+              .article__title
+                = link_to tweet.title, tweet_path(tweet.id)
+              .article__info
+                .article__info__icon
+                  - if tweet.user.image.present?
+                    = image_tag tweet.user.image.url
+                  - else
+                    = tweet_tag "user1"
+                .article__info__name
+                  = link_to tweet.user.name,"#"
+                .article__info__star
+                  = link_to "#" do
+                    = icon 'fas', "star"
+                .article__info__like
+                  = link_to "#" do
+                    = icon 'fas', "heart"

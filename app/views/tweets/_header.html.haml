@@ -1,0 +1,22 @@
+.Header
+  %h1.header__logo
+    = link_to 'Runner Space', tweets_path
+  %ul.header__nav
+    -if user_signed_in?
+      %li.header__nav__list
+        = link_to 'ユーザー一覧', users_path
+      %li.header__nav__list
+        = link_to '投稿一覧', tweets_path
+      %li.header__nav__list
+        = link_to '新規投稿', new_tweet_path
+      %li.header__nav__list
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      %li.header__nav__list 
+        = link_to user_path(current_user.id) do
+          - if current_user.image.present?
+            = image_tag current_user.image.url
+          - else
+            = image_tag "user1"
+    -else
+      %li.header__nav__list
+        = link_to 'ログイン', new_user_session_path
