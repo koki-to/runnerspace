@@ -21,5 +21,5 @@
               = link_to "#" do
                 = icon 'fas', "star"
             .article__info__like
-              = link_to "#" do
-                = icon 'fas', "heart"
+              .Link_btn
+                = render partial: "likes/like", locals: {tweet: tweet}

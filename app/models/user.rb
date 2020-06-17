@@ -7,5 +7,6 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 200 }
   has_many :tweets, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   mount_uploader :image, ImageUploader
 end
