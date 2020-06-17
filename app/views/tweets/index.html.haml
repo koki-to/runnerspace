@@ -14,12 +14,20 @@
           .article__info
             .article__info__icon
               = link_to user_path(tweet.user.id) do
-                = image_tag tweet.user.image.url
+                - if tweet.user.image.present?
+                  = image_tag tweet.user.image.url
+                - else
+                  = image_tag "user1"
             .article__info__name
               = link_to tweet.user.name, user_path(tweet.user.id)
             .article__info__star
-              = link_to "#" do
-                = icon 'fas', "star"
+              - if user_signed_in?
+                - if tweet.user.followed_by?(current_user)
+                  = link_to user_relationships_path(tweet.user.id), method: :delete do
+                    = icon 'fas', "star"
+                - else
+                  = link_to user_relationships_path(tweet.user.id), method: :post do
+                    = icon 'far', "star"
             .article__info__like
               .Link_btn
                 = render partial: "likes/like", locals: {tweet: tweet}
