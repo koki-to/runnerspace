@@ -5,6 +5,11 @@
       .container
         %h3 アカウントの編集
         = form_for(@user) do |f|
+          - if @user.errors.any?
+            %h2= "#{@user.errors.full_messages.count}件のエラーが発生しました"
+            %ul
+              - @user.errors.full_messages.each do |message|
+                %li= message
           .FormField
             .FormField__label--normal
               = f.label :name, "名前(8文字以内)"

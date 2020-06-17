@@ -9,10 +9,11 @@ class TweetsController < ApplicationController
   end
 
   def create
-    if @tweet = Tweet.create(tweet_params)
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
       redirect_to action: :index
     else
-      render action: :new
+      render :new
     end
   end
 
@@ -27,9 +28,12 @@ class TweetsController < ApplicationController
   end
 
   def update
-    tweet = Tweet.find(params[:id])
-    tweet.update(tweet_params)
-    redirect_to action: :show
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to @tweet
+    else
+      render :edit
+    end
   end
 
   def show
