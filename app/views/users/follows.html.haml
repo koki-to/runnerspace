@@ -2,8 +2,6 @@
 .Home
   .home
     .Index
-      = link_to "フォローユーザー", follows_user_path(@user.id)
-      = link_to "フォロワーユーザー", followers_user_path(@user.id)
       - @users.each do |user|
         .Index__user
           .Index__user__image
@@ -14,3 +12,8 @@
                 = image_tag "user1"
           .Index__user__name
             = link_to user.name, user_path(user.id)
+          - if current_user != user
+            - if user.followed_by?(current_user)
+              = link_to "フォロー済み", user_relationships_path(user.id), method: :delete
+            - else
+              = link_to "フォローする", user_relationships_path(user.id), method: :post

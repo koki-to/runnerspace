@@ -14,7 +14,10 @@
           = link_to @tweet.text
         .Post__info
           .article__info__icon
-            = image_tag @tweet.user.image.url
+            - if @tweet.user.image.present?
+              = image_tag @tweet.user.image.url
+            - else
+              = image_tag "user1"
           .article__info__name
             = link_to @tweet.user.name, user_path(@tweet.user.id)
           .article__info__star

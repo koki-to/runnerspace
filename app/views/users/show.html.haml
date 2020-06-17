@@ -32,7 +32,7 @@
                   - if tweet.user.image.present?
                     = image_tag tweet.user.image.url
                   - else
-                    = tweet_tag "user1"
+                    = image_tag "user1"
                 .article__info__name
                   = link_to tweet.user.name,"#"
                 .article__info__star
