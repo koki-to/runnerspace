@@ -105,12 +105,20 @@ body {
         .none {
           display: none;
         }
+      &__label--form {
+        .number {
+          display: flex;
+        }
+      }
       }
       .text_area {
         width: 300px;
         border-radius: 4px;
         border: 1px solid black;
         padding-left: 5px;
+        &.num {
+          width: 50px;
+        }
 
       }
     }

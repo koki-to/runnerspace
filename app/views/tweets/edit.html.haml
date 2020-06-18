@@ -20,6 +20,11 @@
             .FormField__label--form
               = f.text_area :text, rows: "6", class: "text_area"
             .FormField__label--normal
+              = f.label :run, "走行距離"
+            .FormField__label--form.number
+              = f.number_field :run, step: '0,1', placeholder: "1", class: "text_area num"
+              %span km
+            .FormField__label--normal
               = f.label :image, "画像" do
                 = icon('far', 'image')
                 = f.file_field :image, class: "none"
