@@ -9,3 +9,5 @@
         = link_to "会員登録", new_user_registration_path, class: "btn"
       .home__button__signin
         = link_to "ログイン", new_user_session_path, class: "btn"
+      .home__button__guest
+        = link_to "ゲストログイン", home_guest_sign_in_path, method: :post, class: "btn"
