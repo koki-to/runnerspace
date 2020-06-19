@@ -7,5 +7,6 @@ class HomeController < ApplicationController
     user.password = SecureRandom.urlsafe_base64
     end
   sign_in user
+  redirect_to tweets_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 end
