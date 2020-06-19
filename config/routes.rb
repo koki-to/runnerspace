@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
+  post '/home/guest_sign_in', to: "home#new_guest"
   resources :users do
     resource :relationships, only: [:create, :destroy]
     get :follows, on: :member

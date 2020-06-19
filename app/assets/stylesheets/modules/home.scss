@@ -1,5 +1,5 @@
 .Home {
-  background-image: url(background);
+  background-image: url(background1);
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -25,6 +25,9 @@
       margin: 40px auto;
 
       &__signin {
+        margin-top: 30px;
+      }
+      &__guest {
         margin-top: 30px;
       }
       .btn {

@@ -11,7 +11,12 @@ class ApplicationController < ActionController::Base
     tweets_path
   end
 
-  
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
+  # def guest_user
+  #   @guest = 
   protected
 
   def configure_permitted_parameters
