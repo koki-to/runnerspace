@@ -27,6 +27,7 @@
               = icon 'fas', "heart"
         .Post__bottom
           - if user_signed_in? && current_user.id == @tweet.user_id
+          - elsif current_user.admin?
             .Post__bottom__edit
               = link_to '編集', edit_tweet_path(@tweet.id)
             .Post__bottom__delete
