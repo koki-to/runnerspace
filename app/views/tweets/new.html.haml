@@ -16,6 +16,10 @@
             .FormField__label--form
               = f.text_field :title, class: "text_area"
             .FormField__label--normal
+              = f.label :title, "タグ"
+            .FormField__label--form
+              = f.select :tag_ids, [["ランニングレコード", 1], ["ランニングアイテム", 2], ["その他", 3]]
+            .FormField__label--normal
               = f.label :text, "内容"
             .FormField__label--form
               = f.text_area :text, rows: "6", class: "text_area"
