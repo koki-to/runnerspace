@@ -1,3 +1,11 @@
+User.create!(name:  "管理者",
+  email: "koki.jam.torigoshi@ezweb.ne.jp",
+  password:  "kokikoki",
+  password_confirmation: "kokikoki",
+  admin: true)
+
+
+
 Tag.create([
   { name: 'ランニングレコード' },
   { name: 'ランニングアイテム' },

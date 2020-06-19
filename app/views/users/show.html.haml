@@ -12,6 +12,7 @@
         .Privacy__introduction
           = @user.introduction
         - if user_signed_in? && current_user.id == @user.id
+        - elsif current_user.admin?
           .Privacy__edit
             = link_to "編集", edit_user_path(@user)
         .Privacy__articles
