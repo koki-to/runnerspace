@@ -1,49 +1,74 @@
+@keyframes bgAnime {
+  0% { opacity: 0;}
+  5% { opacity: 1;}
+  25% { opacity: 1;}
+  30% { opacity: 0;}
+  100% { opacity: 0;}
+}
 .Home {
-  background-image: url(background1);
-  background-size: cover;
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
-
-  .home {
-    background-color: rgba(93, 153, 150, 0.5);
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: scroll;
-    &__logo {
-      font-size: 60px;
+  position: relative;
+  &__top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    animation : bgAnime 20s infinite;
+    &.img1 {
+      background-image: url(background1);
+      background-size: cover;
     }
-    &__copy {
-      font-size: 20px;
+    &.img2 {
+      background-image: url(background2);
+      animation-delay: 5s;
+      background-size: cover;
     }
-    &__button {
-      margin: 40px auto;
-
-      &__signin {
-        margin-top: 30px;
-      }
-      &__guest {
-        margin-top: 30px;
-      }
-      .btn {
-        display: block;
-        border: 1px solid white;
-        border-radius: 4px;
-        padding: 10px 50px;
-        cursor: pointer;
-        color: white;
-
-      }
-      
-      
-      
+    &.img3 {
+      background-image: url(background3);
+      background-size: cover;
+      animation-delay: 10s;
     }
-      
-    
+    &.img4 {
+      background-image: url(background4);
+      background-size: cover;
+      animation-delay: 15s;
+    }
+    &__body {
+      position: absolute;
+      background-color: rgba(93, 153, 150, 0.5);
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .Main__logo {
+        font-size: 60px;
+      }
+      .Main__copy {
+        font-size: 20px;
+      }
+      .Main__button {
+        margin: 40px auto;
+        .btn {
+          display: block;
+          border: 1px solid white;
+          border-radius: 4px;
+          padding: 10px 50px;
+          cursor: pointer;
+          color: white;
+        }
+        &__signin {
+          margin-top: 30px;
+        }
+        &__guest {
+          margin-top: 30px;
+        }
+      }
+    }
   }
 }

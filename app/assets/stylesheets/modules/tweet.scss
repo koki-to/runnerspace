@@ -9,6 +9,7 @@ body {
     width: 100vw;
     position: fixed;
     justify-content: space-between;
+    z-index: 2;
     a {
       color: white;
     }
@@ -33,9 +34,10 @@ body {
   .Content {
     display: flex;
     justify-content: center;
-    height: 100%;
+    height: 98%;
     flex-wrap: wrap;
     padding: 100px;
+    overflow: scroll;
     .article {
       background-color: white;
       border-radius: 4px;
@@ -94,7 +96,7 @@ body {
   display: flex;
   justify-content: center;
   color: black;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   .container {
     padding: 30px;
     h3 {
@@ -194,5 +196,12 @@ body {
       background-color: crimson;
     }
   }
+}
+
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  right: 46%;
 }
 

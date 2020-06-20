@@ -1,5 +1,5 @@
-.Home
-  .home
+.Home.img1
+  .Home__top__body
     .Content
       - @tweets.each do |tweet|
         .article
@@ -32,3 +32,4 @@
             .article__info__like
               .Link_btn
                 = render partial: "likes/like", locals: {tweet: tweet}
+    = paginate @tweets
