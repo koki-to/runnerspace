@@ -1,4 +1,8 @@
 .Notification {
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  z-index: 1;
   .notice {
     background-color: #38AEF0;
     color: #fff;

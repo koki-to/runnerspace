@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
   before_action :move_to_index, expect: :index
   def index
-    @tweets = Tweet.includes(:user).order("created_at DESC")
+    tweets = Tweet.includes(:user).order("created_at DESC")
+    @tweets = tweets.page(params[:page]).per(12)
   end
 
   def new
