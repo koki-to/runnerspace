@@ -1,0 +1,31 @@
+= form_with(model: @tweet, local: true) do |f|
+  - if @tweet.errors.any?
+    %h2= "#{@tweet.errors.full_messages.count}件のエラーが発生しました"
+    %ul
+      - @tweet.errors.full_messages.each do |message|
+        %li= message
+  .FormField
+    .FormField__label--normal
+      = f.label :title, "タイトル"
+    .FormField__label--form
+      = f.text_field :title, class: "text_area"
+    .FormField__label--normal
+      = f.label :title, "タグ"
+    .FormField__label--form
+      = f.select :tag_ids, [["走行距離", 1], ["運動グッズ", 2], ["大会記録", 3], ["その他", 4]]
+    .FormField__label--normal
+      = f.label :text, "内容"
+    .FormField__label--form
+      = f.text_area :text, rows: "6", class: "text_area"
+    .FormField__label--normal
+      = f.label :run, "走行距離"
+    .FormField__label--form.number
+      = f.number_field :run, step: '0,1', placeholder: "1", class: "text_area num"
+      %span km
+    .FormField__label--normal
+      = f.label :image, "画像" do
+        = icon('far', 'image')
+    .FormField__label--normal
+      = f.file_field :image, class: "none"
+    .FormField__submit
+      = f.submit "投稿する", class: 'submit'

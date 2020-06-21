@@ -34,54 +34,82 @@ body {
   .Content {
     display: flex;
     justify-content: center;
-    height: 98%;
+    height: 97%;
     flex-wrap: wrap;
-    padding: 100px;
+    padding: 100px 30px 0;
     overflow: scroll;
     .article {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 4px;
-      width: 300px;
-      height: 400px;
-      margin: 0 25px 100px;
-      padding: 25px;
+      margin: 0 20px 40px;
+      box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
+      position: relative;
       &__image {
+        height: 250px;
+        width: 300px;
         img {
-          border-radius: 4px;
-          height: 250px;
-          width: 250px;
+          height: 100%;
+          width: 100%;
+          background-size: cover;
+          border-radius: 4px 4px 0 0;
         }
       }
       &__tag {
-        color: black;
-      }
-      &__title {
-        margin: 10px 0;
-        font-size: 20px;
-        text-align: center;
+        position: absolute;
+        font-size: 8px;
+        top: 5px;
+        left: 5px;
+        color: white;
+        padding: 0.2em;
+        display: inline-block;
+        line-height: 1.3;
+        vertical-align: middle;
+        border-radius: 25px 0px 0px 25px;
+        &.color1 {
+          background-color: rgba(0, 26, 255, 0.4);
+        }
+        &.color2 {
+          background-color: rgba(1, 128, 1, 0.4);
+        }
+        &.color3 {
+          background-color: rgba(255, 0, 0, 0.4);
+        }
+        &.color4 {
+          background-color: gray;
+        }
+        &::before {
+          content: '●';
+          color: white;
+          margin-right: 8px;
+        }
       }
       &__info {
-        display: flex;
-        align-items: center;
-        &__icon img {
-          height: 55px;
-          width: 55px;
-          border-radius: 50%;
-          border: 3px solid black;
+        border-top: solid 5px #5d627b;
+        &__title {
+          font-size: 20px;
+          text-align: center;
+          margin: 10px 0;
         }
-
-        &__name {
-          margin-left: 20px;
-        }
-
-        &__star {
-          margin-left: 50px;
-        }
-
-        &__like {
-          margin-left: 10px;
-          color: black;
+        &__user {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &__icon img {
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            border: 3px solid black;
+          }
           
+          &__name {
+            margin-left: 20px;
+          }
+        }
+        &__time {
+          text-align: right;
+          font-size: 3px;
+          color: #5d627b;
+          margin: 10px;
         }
       }
     }
@@ -144,7 +172,7 @@ body {
 .Post {
   background-color: white;
   border-radius: 4px;
-  width: 50vw;
+  width: 90vw;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -203,5 +231,9 @@ body {
   position: absolute;
   bottom: 0;
   right: 46%;
+  color: white;
+  a {
+    color: white;
+  }
 }
 

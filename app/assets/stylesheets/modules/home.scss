@@ -5,6 +5,9 @@
   30% { opacity: 0;}
   100% { opacity: 0;}
 }
+
+$main_color: rgba(93, 149, 153, 0.5);
+
 .Home {
   width: 100vw;
   height: 100vh;
@@ -38,7 +41,7 @@
     }
     &__body {
       position: absolute;
-      background-color: rgba(93, 153, 150, 0.5);
+      background-color: $main_color;
       width: 100%;
       height: 100%;
       text-align: center;
@@ -70,5 +73,33 @@
         }
       }
     }
+  }
+}
+
+.Home__global {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  &.img1 {
+    background-image: url(background1);
+    background-size: cover;
+  }
+  &.img2 {
+    background-image: url(background2);
+    background-size: cover;
+  }
+  &.img3 {
+    background-image: url(background3);
+    background-size: cover;
+  }
+  &.img4 {
+    background-image: url(background4);
+    background-size: cover;
+  }
+  &__section {
+    background-color: $main_color;
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 }
