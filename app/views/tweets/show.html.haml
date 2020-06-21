@@ -1,57 +1,85 @@
 .Home__global.img2
   .Home__global__section
-    .Content
-      .Post
-        .Post__image
-          - if @tweet.image.present?
-            = image_tag @tweet.image.url
-          - else
-            = image_tag "article1"
-        .Post__title
-          = link_to @tweet.title
-        .Post__text
-          = link_to @tweet.text
-        .Post__info
-          .article__info__icon
-            - if @tweet.user.image.present?
-              = image_tag @tweet.user.image.url
+    .Post
+      .Post__section
+        .Post__section__main
+          .Post__section__main__image
+            - if @tweet.image.present?
+              = image_tag @tweet.image.url
             - else
-              = image_tag "user1"
-          .article__info__name
-            = link_to @tweet.user.name, user_path(@tweet.user.id)
-          .article__info__like
-            = render partial: "likes/like", locals: { tweet: @tweet}
-        .Post__bottom
-          - if current_user.admin? || (user_signed_in? && current_user.id == @tweet.user_id)
-            .Post__bottom__edit
-              = link_to '編集', edit_tweet_path(@tweet.id)
-            .Post__bottom__delete
-              = link_to '削除', tweet_path(@tweet.id), method: :delete
-        .Post__comment
+              = image_tag "article1"
+          .Post__section__main__info
+            - if @tweet.tags.first.name == "走行記録"
+              .Post__section__main__info__tag.color1
+                = @tweet.tags.first.name
+            - elsif @tweet.tags.first.name == "運動グッズ"
+              .Post__section__main__info__tag.color2
+                = @tweet.tags.first.name
+            - elsif @tweet.tags.first.name == "大会記録"
+              .Post__section__main__info__tag.color3
+                = @tweet.tags.first.name
+            - else
+              .Post__section__main__info__tag.color4
+                = @tweet.tags.first.name
+            .Post__section__main__info__link
+              = render partial: "likes/like", locals: { tweet: @tweet}
+          .Post__section__main__user
+            .Post__section__main__user__left
+              .Post__section__main__user__left__icon
+                = link_to user_path(@tweet.user.id) do
+                  - if @tweet.user.image.present?
+                    = image_tag @tweet.user.image.url
+                  - else
+                    = image_tag "user1"
+              .Post__section__main__user__left__name
+                = link_to @tweet.user.name, user_path(@tweet.user.id)
+            .Post__section__main__user__right
+              - if current_user.admin? || (user_signed_in? && current_user.id == @tweet.user_id)
+                .Post__section__main__user__right__edit
+                  = link_to '編集', edit_tweet_path(@tweet.id)
+                .Post__section__main__user__right__delete
+                  = link_to '削除', tweet_path(@tweet.id), method: :delete
+        .Post__section__side
+          .Post__section__side__title
+            = @tweet.title
+          .Post__section__side__desc
+            = @tweet.text
+          - if @tweet.run.present?
+            .Post__section__side__run
+              = "走行距離#{@tweet.run}km"
+          .Post__section__side__time
+            = @tweet.created_at.strftime("投稿日時:%m月%d日 %H時%M分")
+      .Post__comment
+        .Post__comment__list
+          - if @comments
+            - @comments.each do |comment|
+              - if comment.user_id == @tweet.user_id
+                .Post__comment__list__host
+                  .Post__comment__list__host__image
+                    = link_to user_path(comment.user.id) do
+                      - if comment.user.image.present?
+                        = image_tag comment.user.image.url
+                      - else
+                        = image_tag "user1"
+                  .Post__comment__list__host__text
+                    %h5= comment.created_at.strftime("%m月%d日 %H時%M分")
+                    %p= comment.text
+              - else
+                .Post__comment__list__post
+                  .Post__comment__list__post__text
+                    %h5= comment.created_at.strftime("%m月%d日 %H時%M分")
+                    %p= comment.text
+                  .Post__comment__list__post__image
+                    = link_to user_path(comment.user.id) do
+                      - if comment.user.image.present?
+                        = image_tag comment.user.image.url
+                      - else
+                        = image_tag "user1"
+        .Post__comment__button
           - if current_user
             = form_with(model: [@tweet, @comment], local: true) do |f|
               = f.text_field :text, placeholder: "コメントする", class: "text_area"
-              = f.submit "送信", class: "Post__comment__submit"
+              = f.submit "送信", class: "submit"
           - else
             %h1 コメントの投稿には新規登録/ログインが必要です
             %h3 <コメント一覧>
-          .Post__comment__list
-            - if @comments
-              - @comments.each do |comment|
-                - if comment.user_id == @tweet.user_id
-                  .Post__comment__list__host
-                    = link_to user_path(comment.user.id) do
-                      - if comment.user.image.present?
-                        = image_tag comment.user.image.url
-                      - else
-                        = image_tag "user1"
-                    = comment.text
-                - else
-                  .Post__comment__list__post
-                    = comment.created_at
-                    = comment.text
-                    = link_to user_path(comment.user.id) do
-                      - if comment.user.image.present?
-                        = image_tag comment.user.image.url
-                      - else
-                        = image_tag "user1"
