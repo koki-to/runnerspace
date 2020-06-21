@@ -1,35 +1,38 @@
-.Home.img1
-  .Home__top__body
+.Home__global.img1
+  .Home__global__section
     .Content
       - @tweets.each do |tweet|
         .article
           .article__image
-            - if tweet.image.present?
-              = image_tag tweet.image.url
-            - else
-              = image_tag "article1"
-          .article__tag
-            = tweet.tags.first.name
-          .article__title
-            = link_to tweet.title, tweet_path(tweet.id)
+            = link_to tweet_path(tweet.id) do
+              - if tweet.image.present?
+                = image_tag tweet.image.url
+              - else
+                = image_tag "article1"
+          - if tweet.tags.first.name == "走行記録"
+            .article__tag.color1
+              = tweet.tags.first.name
+          - elsif tweet.tags.first.name == "運動グッズ"
+            .article__tag.color2
+              = tweet.tags.first.name
+          - elsif tweet.tags.first.name == "大会記録"
+            .article__tag.color3
+              = tweet.tags.first.name
+          - else
+            .article__tag.color4
+              = tweet.tags.first.name
           .article__info
-            .article__info__icon
-              = link_to user_path(tweet.user.id) do
-                - if tweet.user.image.present?
-                  = image_tag tweet.user.image.url
-                - else
-                  = image_tag "user1"
-            .article__info__name
-              = link_to tweet.user.name, user_path(tweet.user.id)
-            .article__info__star
-              - if user_signed_in?
-                - if tweet.user.followed_by?(current_user)
-                  = link_to user_relationships_path(tweet.user.id), method: :delete do
-                    = icon 'fas', "star"
-                - else
-                  = link_to user_relationships_path(tweet.user.id), method: :post do
-                    = icon 'far', "star"
-            .article__info__like
-              .Link_btn
-                = render partial: "likes/like", locals: {tweet: tweet}
+            .article__info__title
+              = link_to tweet.title, tweet_path(tweet.id)
+            .article__info__user
+              .article__info__user__icon
+                = link_to user_path(tweet.user.id) do
+                  - if tweet.user.image.present?
+                    = image_tag tweet.user.image.url
+                  - else
+                    = image_tag "user1"
+              .article__info__user__name
+                = link_to tweet.user.name, user_path(tweet.user.id)
+            .article__info__time
+              = tweet.created_at.strftime("投稿日時:%m月%d日 %H時%M分")
     = paginate @tweets

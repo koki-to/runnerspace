@@ -1,5 +1,5 @@
-.Home
-  .Home__top
+.Home__global.img2
+  .Home__global__section
     .Content
       .Post
         .Post__image
@@ -19,15 +19,10 @@
               = image_tag "user1"
           .article__info__name
             = link_to @tweet.user.name, user_path(@tweet.user.id)
-          .article__info__star
-            = link_to "#" do
-              = icon 'fas', "star"
           .article__info__like
-            = link_to "#" do
-              = icon 'fas', "heart"
+            = render partial: "likes/like", locals: { tweet: @tweet}
         .Post__bottom
-          - if user_signed_in? && current_user.id == @tweet.user_id
-          - elsif current_user.admin?
+          - if current_user.admin? || (user_signed_in? && current_user.id == @tweet.user_id)
             .Post__bottom__edit
               = link_to '編集', edit_tweet_path(@tweet.id)
             .Post__bottom__delete
