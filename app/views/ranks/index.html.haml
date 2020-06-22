@@ -1,14 +1,51 @@
-= render partial: "tweets/header"
-.Home
-  .home
-    .Index
-      - @all_rank.each do |user|
-        .Index__user
-          .Index__user__image
-            = link_to user_path(user.id) do
-              - if user.image.present?
-                = image_tag user.image.url
-              - else
-                = image_tag "user1"
-          .Index__user__name
-            = link_to user.name, user_path(user.id)
+.Home__global.img2
+  .Home__global__section
+    .Rank__content
+      - @all_rank.each.with_index(1) do |user, i|
+        .Rank__content__user
+          .Rank__content__user__left
+            - if i == 1
+              .Rank__content__user__left__top.crown1
+                = icon 'fa', 'crown'
+              .Rank__content__user__left__buttom.rank1
+                = "第#{i}位"
+            - elsif i == 2
+              .Rank__content__user__left__top.crown2
+                = icon 'fa', 'crown'
+              .Rank__content__user__left__buttom.rank2
+                = "第#{i}位"
+            - elsif i == 3
+              .Rank__content__user__left__top.crown3
+                = icon 'fa', 'crown'
+              .Rank__content__user__left__buttom.rank3
+                = "第#{i}位"
+            - else
+              .Rank__content__user__left__buttom.rank4
+                = "第#{i}位"
+          .Index__user
+            .Index__user__info
+              .Index__user__info__icon
+                = link_to user_path(user.id) do
+                  - if user.image.present?
+                    = image_tag user.image.url
+                  - else
+                    = image_tag "user1"
+              .Index__user__info__group
+                .Index__user__info__group__top
+                  .Index__user__info__group__top__posts
+                    = "投稿数: #{user.tweets.count}"
+                  .Index__user__info__group__top__star
+                  - if current_user != user
+                    - if user.followed_by?(current_user)
+                      = link_to user_relationships_path(user.id), method: :delete do
+                        = icon 'fas', "star"
+                    - else
+                      = link_to user_relationships_path(user.id), method: :post do
+                        = icon 'far', "star"
+                .Index__user__info__group__name
+                  = link_to user.name, user_path(user.id)
+            .Index__user__run
+              .Index__user__run__top
+                %h2 累計走行距離
+              .Index__user__run__bottom
+                = "#{user.tweets.sum(:run)}km"

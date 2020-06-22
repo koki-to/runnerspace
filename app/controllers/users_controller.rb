@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    @users = User.includes(:tweets).order("created_at DESC")
+    users = User.includes(:tweets).order("created_at DESC")
+    @users = users.page(params[:page]).per(12)
   end
 
   def edit
@@ -24,13 +25,13 @@ class UsersController < ApplicationController
   end
 
   def follows
-    user = User.find(current_user.id)
-    @users = user.followings
+    @user = User.find(current_user.id)
+    @users = @user.followings
   end
 
   def followers
-    user = User.find(params[:id])
-    @users = user.followers
+    @user = User.find(params[:id])
+    @users = @user.followers
   end
 
   private
