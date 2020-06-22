@@ -1,15 +1,39 @@
-.Home
-  .Home__top
+.Home__global.img2
+  .Home__global__section
+    .Contact
+      .Contact__user
+        = link_to "ユーザー一覧", users_path
+      .Contact__follow
+        = link_to "フォロー", follows_user_path(@user.id)
+      .Contact__follower
+        = link_to "フォロワー", followers_user_path(@user.id)
     .Index
-      = link_to "フォローユーザー", follows_user_path(@user.id)
-      = link_to "フォロワーユーザー", followers_user_path(@user.id)
       - @users.each do |user|
         .Index__user
-          .Index__user__image
-            = link_to user_path(user.id) do
-              - if user.image.present?
-                = image_tag user.image.url
-              - else
-                = image_tag "user1"
-          .Index__user__name
-            = link_to user.name, user_path(user.id)
+          .Index__user__info
+            .Index__user__info__icon
+              = link_to user_path(user.id) do
+                - if user.image.present?
+                  = image_tag user.image.url
+                - else
+                  = image_tag "user1"
+            .Index__user__info__group
+              .Index__user__info__group__top
+                .Index__user__info__group__top__posts
+                  = "投稿数: #{user.tweets.count}"
+                .Index__user__info__group__top__star
+                - if current_user != user
+                  - if user.followed_by?(current_user)
+                    = link_to user_relationships_path(user.id), method: :delete do
+                      = icon 'fas', "star"
+                  - else
+                    = link_to user_relationships_path(user.id), method: :post do
+                      = icon 'far', "star"
+              .Index__user__info__group__name
+                = link_to user.name, user_path(user.id)
+          .Index__user__run
+            .Index__user__run__top
+              %h2 累計走行距離
+            .Index__user__run__bottom
+              = "#{user.tweets.sum(:run)}km"
+    = paginate @users
