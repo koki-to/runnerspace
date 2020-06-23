@@ -7,11 +7,30 @@
     background-color: #38AEF0;
     color: #fff;
     text-align: center;
+    opacity: 0;
+    animation-name: fadeout;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
   }
 
   .alert {
     background-color: #F35500;
     color: #fff;
     text-align: center;
+    opacity: 0;
+    animation-name: fadeout;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+        opacity: 1;
+        transform: translateY(0);
+  }
+  to {
+        opacity: 0;
+        transform: translateY(-20px);
   }
 }

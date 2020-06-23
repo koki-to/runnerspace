@@ -1,48 +1,85 @@
-.Home
-  .Home__top
-    .Content
+.Home__global.img3
+  .Home__global__section
+    .Post
       .Privacy
-        .Privacy__image
-          - if @user.image.present?
-            = image_tag @user.image.url
-          - else
-            = image_tag "user1"
-        .Privacy__name
-          = @user.name
-        .Privacy__introduction
-          = @user.introduction
-        - if user_signed_in? && current_user.id == @user.id
-        - elsif current_user.admin?
-          .Privacy__edit
-            = link_to "編集", edit_user_path(@user)
-        .Privacy__articles
-          = "#{@user.name}さんの投稿"
-        .articles
-          - @tweets.each do |tweet|
-            .article
-              .article__image
-                - if tweet.image.present?
-                  = image_tag tweet.image.url
+        .Privacy__main
+          .Privacy__main__image
+            - if @user.image.present?
+              = image_tag @user.image.url
+            - else
+              = image_tag "user1"
+          .Privacy__main__top
+            .Privacy__main__top__name
+              = @user.name
+            .Privacy__main__top__star
+              - if current_user != @user
+                - if @user.followed_by?(current_user)
+                  = link_to user_relationships_path(@user.id), method: :delete do
+                    = icon 'fas', "star", class: "star"
                 - else
-                  = image_tag "article1"
-              .article__title
-                = link_to tweet.title, tweet_path(tweet.id)
-              .article__info
-                .article__info__icon
-                  - if tweet.user.image.present?
-                    = image_tag tweet.user.image.url
-                  - else
-                    = image_tag "user1"
-                .article__info__name
-                  = link_to tweet.user.name,"#"
-                .article__info__star
-                  - if user_signed_in?
-                    - if tweet.user.followed_by?(current_user)
-                      = link_to user_relationships_path(tweet.user.id), method: :delete do
-                        = icon 'fas', "star"
+                  = link_to user_relationships_path(@user.id), method: :post do
+                    = icon 'far', "star", class: "unster"
+          .Privacy__main__bottom
+            = @user.introduction
+        .Privacy__side
+          .Privacy__side__main
+            .Privacy__side__main__top
+              = "累計走行距離"
+            .Privacy__side__main__bottom
+              = "#{@user.tweets.sum(:run)}km"
+          .Privacy__side__rank
+            .Privacy__side__rank__top
+              = "総合順位"
+          - @ranks.each.with_index(1) do |rank, i|
+            - if rank.id == @user.id
+              .Privacy__side__rank__bottom
+                = "第#{i}位"
+          .Privacy__side__info
+            .Privacy__side__info__num
+              .Privacy__side__info__num__posts
+                = "投稿数: #{@tweets.count}"
+              .Privacy__side__info__num__likes
+                = icon 'fas', "heart", class: "like"
+              = ": #{@like}"
+            .Privacy__side__info__user
+              .Privacy__side__info__user__follows
+                = "フォロー数: #{@follows}"
+              .Privacy__side__info__user__followers
+                = "フォロワー数: #{@followers}"
+            .Privacy__side__info__button
+              - if user_signed_in? && current_user.id == @user.id
+                .Privacy__side__info__button__edit
+                  = link_to "編集", edit_user_path(@user)
+              - elsif current_user.admin?
+                .Privacy__side__info__button__edit
+                  = link_to "編集", edit_user_path(@user)
+                .Privacy__side__info__button__delete
+                  = link_to "削除", user_path(@user), method: :delete
+        .Privacy__articles
+          .Privacy__articles__name
+            = "#{@user.name}さんの投稿"
+          .Privacy__articles__list
+            - @tweets.each do |tweet|
+              .Privacy__articles__list__post
+                .Privacy__articles__list__post__image
+                  = link_to tweet_path(tweet.id) do
+                    - if tweet.image.present?
+                      = image_tag tweet.image.url
                     - else
-                      = link_to user_relationships_path(tweet.user.id), method: :post do
-                        = icon 'far', "star"
-                .article__info__like
-                  = link_to "#" do
-                    = icon 'fas', "heart"
+                      = image_tag "article1"
+                - if tweet.tags.first.name == "走行記録"
+                  .Privacy__articles__list__post__tag.color1
+                    = tweet.tags.first.name
+                - elsif tweet.tags.first.name == "運動グッズ"
+                  .Privacy__articles__list__post__tag.color2
+                    = tweet.tags.first.name
+                - elsif tweet.tags.first.name == "大会記録"
+                  .Privacy__articles__list__post__tag.color3
+                    = tweet.tags.first.name
+                - else
+                  .Privacy__articles__list__post__tag.color4
+                    = tweet.tags.first.name
+                .Privacy__articles__list__post__title
+                  = link_to tweet.title, tweet_path(tweet.id)
+                .Privacy__articles__list__post__time
+                  = tweet.created_at.strftime("投稿日時:%m月%d日 %H時%M分")

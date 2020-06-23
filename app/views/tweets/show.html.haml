@@ -36,17 +36,19 @@
             .Post__section__main__user__right
               - if current_user.admin? || (user_signed_in? && current_user.id == @tweet.user_id)
                 .Post__section__main__user__right__edit
-                  = link_to '編集', edit_tweet_path(@tweet.id)
+                  = link_to '編集', edit_tweet_path(@tweet.id), class: "edit"
                 .Post__section__main__user__right__delete
-                  = link_to '削除', tweet_path(@tweet.id), method: :delete
+                  = link_to '削除', tweet_path(@tweet.id), method: :delete, class: "delete"
         .Post__section__side
           .Post__section__side__title
             = @tweet.title
           .Post__section__side__desc
             = @tweet.text
           - if @tweet.run.present?
+            .Post__section__side__top
+              = "走行距離"
             .Post__section__side__run
-              = "走行距離#{@tweet.run}km"
+              = "#{@tweet.run}km"
           .Post__section__side__time
             = @tweet.created_at.strftime("投稿日時:%m月%d日 %H時%M分")
       .Post__comment
