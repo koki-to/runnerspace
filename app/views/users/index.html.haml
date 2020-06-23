@@ -21,14 +21,6 @@
               .Index__user__info__group__top
                 .Index__user__info__group__top__posts
                   = "投稿数: #{user.tweets.count}"
-                .Index__user__info__group__top__star
-                - if current_user != user
-                  - if user.followed_by?(current_user)
-                    = link_to user_relationships_path(user.id), method: :delete do
-                      = icon 'fas', "star"
-                  - else
-                    = link_to user_relationships_path(user.id), method: :post do
-                      = icon 'far', "star"
               .Index__user__info__group__name
                 = link_to user.name, user_path(user.id)
           .Index__user__run

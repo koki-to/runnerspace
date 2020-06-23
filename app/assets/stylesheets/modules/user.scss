@@ -1,67 +1,222 @@
-.AccountPage {
-  background-image: url(section1);
-  background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  &__content {
-    background-color: rgba(93, 153, 150, 0.5);
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    &__title h5 {
-      font-size: 30px;
-    }
-  }
-}
-
 .Privacy {
-  background-color: white;
-  border-radius: 10px;
-  width: 60vw;
-  padding: 30px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: black;
-  &__image {
-    text-align: center;
-    margin-bottom: 20px;
-    img {
-      width: 450px;
-      height: 450px;
-      border-radius: 10px;
+  &__main {
+    width: 45%;
+    &__image {
+      width: 100%;
+      img {
+        border-radius: 4px;
+        width: 100%;
+        height: 430px;
+      }
+    }
+    &__top {
+      margin: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &__name {
+        font-size: 36px;
+        padding-left: 20px;
+      }
+      &__star {
+        font-size: 20px;
+        .star {
+          color: rgb(240, 240, 3);
+        }
+      }
+    }
+    &__bottom {
+      font-size: 16px;
     }
   }
-
-  &__name {
-    font-size: 40px;
-  }
-
-  &__introduction {
-    margin-bottom: 20px;
-  }
-
-  &__edit {
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color: cornflowerblue;
-    width: 7vw;
-    margin: 0 auto 20px;
-    a {
-      display: block;
-      color: white;
+  &__side {
+    width: 25%;
+    margin: 0 20px;
+    &__main {
+      padding: 20px 0;
+      &__top {
+        font-size: 36px;
+      }
+      &__bottom {
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        margin-top: 20px;
+        &:before {
+          position: absolute;
+          content: '';
+          bottom: 5px;
+          left: 15px;
+          width: 0;
+          height: 0;
+          border: none;
+          border-left: solid 20px transparent;
+          border-bottom: solid 20px rgb(119, 195, 223);
+        }
+        &:after {
+          position: absolute;
+          content: '';
+          bottom: 5px;
+          right: 30px;
+          width: 80%;
+          border-bottom: solid 5px rgb(119, 195, 223);
+        }
+      }
+    }
+    &__rank {
+      margin-top: 30px;
+      &__top {
+        font-size: 36px;
+      }
+      &__bottom {
+        font-size: 50px;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 18px;
+      margin-top: 130px;
+      &__num {
+        display: flex;
+        text-align: center;
+        &__likes {
+          margin-left: 136px;
+          .like {
+            color: #e54747
+          }
+        }
+      }
+      &__user {
+        display: flex;
+        margin-top: 10px;
+        &__followers {
+          margin-left: 10px;
+        }
+      }
+      &__button {
+        margin-top: 30px;
+        display: flex;
+        a {
+          font-size: 16px;
+          display: block;
+          padding: 0 20px;
+          border-radius: 4px;
+          background-color: white;
+          color: black;
+          cursor: pointer;
+          transition: all 0.5s;
+        }
+        &__edit {
+          a {
+            &:hover {
+              background-color: cornflowerblue;
+              color: white;
+            }
+          }
+        }
+        &__delete {
+          margin-left: 20px;
+          a {
+            &:hover {
+              background-color: crimson;
+              color: white;
+            }
+          }
+        }
+      }
     }
   }
-  .articles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  &__articles {
+    width: 30%;
+    border-radius: 4px;
+    position: relative;
+    &__name {
+      text-align: center;
+      font-size: 20px;
+      
+    }
+    &__list {
+      height: 95%;
+      border-radius: 4px;
+      padding-top: 40px;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: white;
+      &__post {
+        position: relative;
+        box-shadow: 6px 6px 10px 0 rgba(0,0,0,0.8), 0 2px 3px 0 rgba(0,0,0,.22);
+        transition: .3s;
+        margin-bottom: 40px;
+        &:hover {
+          box-shadow: 0 15px 30px -5px rgba(0,0,0,.3), 0 0 5px rgba(0,0,0,.5);
+          transform: translateY(-5px);
+        }
+        &__image {
+          height: 250px;
+          width: 300px;
+          img {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            border-radius: 4px 4px 0 0;
+          }
+        }
+        &__tag {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-size: 12px;
+          color: white;
+          padding: 0.2em;
+          display: inline-block;
+          line-height: 1.3;
+          vertical-align: middle;
+          border-radius: 25px 0px 0px 25px;
+          &.color1 {
+            background-color: rgba(0, 26, 255, 0.4);
+          }
+          &.color2 {
+            background-color: rgba(1, 128, 1, 0.4);
+          }
+          &.color3 {
+            background-color: rgba(255, 0, 0, 0.4);
+          }
+          &.color4 {
+            background-color: gray;
+          }
+          &::before {
+            content: '●';
+            color: white;
+            margin-right: 8px;
+          }
+        }
+        &__title {
+          font-size: 22px;
+          text-align: center;
+          margin: 13px 0 10px;
+        }
+        &__time {
+          text-align: right;
+          font-size: 3px;
+          color: #5d627b;
+          margin: 10px;
+        }
+      }
+    }
   }
 }
+
+
 .Contact {
   position: fixed;
   left: 36%;
@@ -75,9 +230,17 @@
   a {
     color: white;
     display: block;
-  } 
+    transition: all 0.5s;
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+  }
   &__user {
     flex: 1;
+    a {
+      border-radius: 4px 0 0 4px;
+    }
   }
   &__follow {
     flex: 1;
@@ -86,6 +249,9 @@
   }
   &__follower {
     flex: 1;
+    a {
+      border-radius: 0 4px 4px 0;
+    }
   }
 }
 .Index {
@@ -95,6 +261,9 @@
   flex-wrap: wrap;
   padding:  180px 100px 0;
   overflow: scroll;
+  animation-name: fadeup;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
   &__user {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
@@ -105,8 +274,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: .3s;
+    &:hover {
+      transform: translateY(-5px);
+    }
     &__info {
       display: flex;
+      width: 250px;
       &__icon {
         margin-right: 20px;
       }
@@ -114,16 +288,13 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        border: 5px solid white;
+        border: 3px solid white;
       }
       &__group {
         padding-top: 12px;
         width: 12vw;
         &__top {
           display: flex;
-          &__star {
-            margin-left: 10px;
-          }
         }
         &__name {
           font-size: 20px;
@@ -147,7 +318,7 @@
           position: absolute;
           content: '';
           bottom: 5px;
-          left: -50px;
+          left: -20px;
           width: 0;
           height: 0;
           border: none;
@@ -158,8 +329,8 @@
           position: absolute;
           content: '';
           bottom: 5px;
-          left: -30px;
-          width: 120%;
+          left: 0;
+          width: 100%;
           border-bottom: solid 5px rgb(119, 195, 223);
         }
       }
@@ -188,6 +359,15 @@
     margin-top: 20px;
     border-radius: 4px;
     box-shadow: 6px 6px 10px rgba(0,0,0,1);
+    animation-name: fadeup;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition: .3s;
+    box-shadow: 6px 6px 10px 0 rgba(0,0,0,0.8), 0 2px 3px 0 rgba(0,0,0,.22);
+    &:hover {
+      box-shadow: 0 15px 30px -5px rgba(0,0,0,.3), 0 0 5px rgba(0,0,0,.5);
+      transform: translateY(-5px);
+    }
     &__left {
       display: flex;
       flex-direction: column;

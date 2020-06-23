@@ -10,6 +10,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to @user
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -22,6 +28,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tweets = @user.tweets.order("created_at DESC")
+    @ranks = User.joins(:tweets).group(:user_id).order('sum(run) desc')
+    @like = Like.where(tweet_id: @tweets.ids).count
+    @follows = @user.followings.count
+    @followers = @user.followers.count
   end
 
   def follows

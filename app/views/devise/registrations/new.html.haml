@@ -12,9 +12,9 @@
           = devise_error_messages!
           .FormField
             .FormField__label--normal
-              = f.label :name, "名前(最大8文字)"
+              = f.label :name, "名前(最大6文字)"
             .FormField__input--form
-              = f.text_field :name, autofocus: true, maxlength: "8", class: "text_area"
+              = f.text_field :name, autofocus: true, maxlength: "6", class: "text_area"
             .FormField__label--normal
               = f.label :email, "E-mail"
             .FormField__input--form
