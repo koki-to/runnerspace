@@ -1,9 +1,9 @@
 - if user_signed_in?
   - if current_user.id != tweet.user_id
     - if tweet.liked_by?(current_user)
-      = link_to tweet_likes_path(tweet.id), method: :delete do
+      = link_to tweet_likes_path(tweet.id), method: :delete, id: "like-button", remote: true do
         = icon 'fas', "heart", class: "like"
     - else
-      = link_to tweet_likes_path(tweet.id), method: :post do
+      = link_to tweet_likes_path(tweet.id), method: :post, id: "like-button", remote: true do
         = icon 'far', "heart", class: "unlike"
     = tweet.likes.count

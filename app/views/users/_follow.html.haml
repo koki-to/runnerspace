@@ -1,0 +1,7 @@
+.Contact
+  .Contact__user
+    = link_to "ユーザー一覧", users_path
+  .Contact__follow
+    = link_to "フォロー", follows_user_path(@user.id)
+  .Contact__follower
+    = link_to "フォロワー", followers_user_path(@user.id)

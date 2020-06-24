@@ -1,0 +1,19 @@
+.Index__user
+  .Index__user__info
+    .Index__user__info__icon
+      = link_to user_path(user.id) do
+        - if user.image.present?
+          = image_tag user.image.url
+        - else
+          = image_tag "user1"
+    .Index__user__info__group
+      .Index__user__info__group__top
+        .Index__user__info__group__top__posts
+          = "投稿数: #{user.tweets.count}"
+      .Index__user__info__group__name
+        = link_to user.name, user_path(user.id)
+  .Index__user__run
+    .Index__user__run__top
+      %h2 累計走行距離
+    .Index__user__run__bottom
+      = "#{user.tweets.sum(:run)}km"

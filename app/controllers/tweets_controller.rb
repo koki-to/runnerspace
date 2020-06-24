@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :move_to_index, expect: :index
+  before_action :set_tweet, only: [:destroy, :edit, :update, :show]
   def index
     tweets = Tweet.includes(:user).order("created_at DESC")
     @tweets = tweets.page(params[:page]).per(12)
@@ -19,17 +20,14 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:id])
     @tweet.destroy
     redirect_to action: :index
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
   end
 
   def update
-    @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
       redirect_to @tweet
     else
@@ -38,7 +36,6 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
     @comment = Comment.new
     @comments = @tweet.comments.includes(:user)
   end
@@ -51,5 +48,9 @@ class TweetsController < ApplicationController
 
     def move_to_index
       redirect_to action: :index unless user_signed_in?
+    end
+
+    def set_tweet
+      @tweet = Tweet.find(params[:id])
     end
 end
