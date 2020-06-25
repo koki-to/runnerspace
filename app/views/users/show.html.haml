@@ -12,13 +12,7 @@
             .Privacy__main__top__name
               = @user.name
             .Privacy__main__top__star
-              - if current_user != @user
-                - if @user.followed_by?(current_user)
-                  = link_to user_relationships_path(@user.id), method: :delete do
-                    = icon 'fas', "star", class: "star"
-                - else
-                  = link_to user_relationships_path(@user.id), method: :post do
-                    = icon 'far', "star", class: "unster"
+              = render partial: "relationships/relationships", locals: {user: @user}
           .Privacy__main__bottom
             = @user.introduction
         .Privacy__side
