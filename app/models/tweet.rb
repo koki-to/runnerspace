@@ -11,5 +11,10 @@ class Tweet < ApplicationRecord
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
+
+  def self.search(search)
+    return Tweet.all unless search
+    Tweet.where('title LIKE(?)', "%#{search}%")
+  end
   mount_uploader :image, ImageUploader
 end

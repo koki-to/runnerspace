@@ -28,7 +28,7 @@ body {
           height: 55px;
           width: 55px;
           border-radius: 50%;
-          border: 3px solid white;
+          border: 3px solid slategray;
         }
       }
     }
@@ -36,93 +36,135 @@ body {
   
 
   .Content {
-    display: flex;
-    justify-content: center;
-    height: 97%;
-    flex-wrap: wrap;
     padding: 100px 30px 0;
     overflow: scroll;
-    .article {
-      background-color: rgba(255, 255, 255, 0.8);
-      height: 400px;
-      border-radius: 4px;
-      margin: 0 20px 40px;
-      position: relative;
-      animation-name: fadeup;
-      animation-duration: 1s;
-      animation-iteration-count: 1;
-      box-shadow: 6px 6px 10px 0 rgba(0,0,0,0.8), 0 2px 3px 0 rgba(0,0,0,.22);
-      transition: .3s;
-      &:hover {
-        box-shadow: 0 15px 30px -5px rgba(0,0,0,.3), 0 0 5px rgba(0,0,0,.5);
-        transform: translateY(-5px);
+    height: 97%;
+    .Search {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      h2 {
+        font-size: 20px;
+        color: white;
       }
-      &__image {
-        height: 250px;
-        width: 300px;
-        img {
-          height: 100%;
-          width: 100%;
-          background-size: cover;
-          border-radius: 4px 4px 0 0;
+      &__title {
+        height: 4vh;
+        .search-input {
+          border: none;
+          background-color: rgba(255, 255, 255, 0.8);
+          border-radius: 4px;
+          height: 4vh;
+          padding-left: 5px;
+        }
+        .search-btn {
+          border: none;
+          background-color: rgba(255, 255, 255, 0.8);
+          border-radius: 4px;
+          height: 4vh;
+          width: 6vh;
+          margin: 0 20px;
+          color: #5d627b;
         }
       }
       &__tag {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        font-size: 12px;
-        color: white;
-        padding: 0.2em;
-        display: inline-block;
-        line-height: 1.3;
-        vertical-align: middle;
-        border-radius: 25px 0px 0px 25px;
-        &.color1 {
-          background-color: rgba(0, 26, 255, 0.4);
-        }
-        &.color2 {
-          background-color: rgba(1, 128, 1, 0.4);
-        }
-        &.color3 {
-          background-color: rgba(255, 0, 0, 0.4);
-        }
-        &.color4 {
-          background-color: gray;
-        }
-        &::before {
-          content: '●';
-          color: white;
-          margin-right: 8px;
+        margin-left: 20px;
+        select {
+          height: 4vh;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.8);
+          border-radius: 4px;
+          color: #5d627b;
         }
       }
-      &__info {
-        border-top: solid 5px #5d627b;
-        &__title {
-          font-size: 22px;
-          text-align: center;
-          margin: 13px 0 10px;
+    }
+    .Articles {
+      display: flex;
+      justify-content: center;
+      height: 97%;
+      flex-wrap: wrap;
+
+      .Article {
+        background-color: rgba(255, 255, 255, 0.8);
+        height: 400px;
+        border-radius: 4px;
+        margin: 0 20px 40px;
+        position: relative;
+        animation-name: fadeup;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        box-shadow: 6px 6px 10px 0 rgba(0,0,0,0.8), 0 2px 3px 0 rgba(0,0,0,.22);
+        transition: .3s;
+        &:hover {
+          box-shadow: 0 15px 30px -5px rgba(0,0,0,.3), 0 0 5px rgba(0,0,0,.5);
+          transform: translateY(-10px);
         }
-        &__user {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          &__icon img {
-            height: 55px;
-            width: 55px;
-            border-radius: 50%;
-            border: 3px solid white;
-          }
-          &__name {
-            font-size: 18px;
-            margin-left: 20px;
+        &__image {
+          height: 250px;
+          width: 300px;
+          img {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            border-radius: 4px 4px 0 0;
           }
         }
-        &__time {
-          text-align: right;
-          font-size: 3px;
-          color: #5d627b;
-          margin: 10px;
+        &__tag {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-size: 12px;
+          color: white;
+          padding: 0.2em;
+          display: inline-block;
+          line-height: 1.3;
+          vertical-align: middle;
+          border-radius: 25px 0px 0px 25px;
+          &.color1 {
+            background-color: rgba(0, 26, 255, 0.4);
+          }
+          &.color2 {
+            background-color: rgba(1, 128, 1, 0.4);
+          }
+          &.color3 {
+            background-color: rgba(255, 0, 0, 0.4);
+          }
+          &.color4 {
+            background-color: gray;
+          }
+          &::before {
+            content: '●';
+            color: white;
+            margin-right: 8px;
+          }
+        }
+        &__info {
+          border-top: solid 5px #5d627b;
+          &__title {
+            font-size: 22px;
+            text-align: center;
+            margin: 13px 0 10px;
+          }
+          &__user {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &__icon img {
+              height: 55px;
+              width: 55px;
+              border-radius: 50%;
+              border: 3px solid slategray;
+            }
+            &__name {
+              font-size: 18px;
+              margin-left: 20px;
+            }
+          }
+          &__time {
+            text-align: right;
+            font-size: 3px;
+            color: #5d627b;
+            margin: 10px;
+          }
         }
       }
     }
@@ -184,13 +226,16 @@ body {
 .Input {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
+  padding: 20px 0;
   width: 60vw;
-  height: 80vh;
   margin: 100px auto;
   color: black;
   display: flex;
   justify-content: center;
   box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
+  ul {
+    color: red;
+  }
   &__area {
     display: flex;
     width: 60vw;
@@ -323,6 +368,7 @@ body {
           }
         }
         &__link {
+          font-size: 20px;
           .like {
             color: #e54747;
           }
@@ -341,11 +387,11 @@ body {
               height: 55px;
               width: 55px;
               border-radius: 50%;
-              border: 3px solid white;
+              border: 3px solid slategray;
             }
           }
           &__name {
-            font-size: 18px;
+            font-size: 26px;
             margin-left: 20px;
           }
         }

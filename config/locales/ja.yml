@@ -1,6 +1,17 @@
 ---
 ja:
   activerecord:
+    models:
+      tweet: 記事
+    attributes:
+      tweet:
+        title: タイトル
+        text: 内容
+    models:
+      user: 
+    attributes:
+      user:
+        name: 名前
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -109,6 +120,7 @@ ja:
   errors:
     format: "%{attribute}%{message}"
     messages:
+      
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません

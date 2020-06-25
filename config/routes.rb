@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :tweets do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: :create
+    collection do
+      get 'search'
+    end
   end
   resources :ranks, only: :index
 
