@@ -1,7 +1,8 @@
 .Home__global.img2
   .Home__global__section
-    = render 'follow', user: @user
-    .Index
-      - @users.each do |user|
-        = render 'user', user: user
+    .Content
+      = render 'follow', user: @user
+      .Index
+        - @users.each do |user|
+          = render 'user', user: user
     = paginate @users
