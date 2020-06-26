@@ -76,6 +76,79 @@ Tag.create(
     { name: 'その他'},
   ]
 )
+<<<<<<< Updated upstream
+=======
+require "securerandom"
+User.create!(
+  [
+    {
+      name:  "マコなり社長",
+      email: "koki.jam.torigoshi@ezweb.ne.jp",
+      image: File.open('./app/assets/images/download.jpg'),
+      introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+      admin: true
+    },
+    {
+      name:  "キャリー",
+      email: "test1@test.com",
+      image: File.open('./app/assets/images/user1.jpg'),
+      introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+    },
+    {
+      name:  "エリザベス",
+      email: "test2@test.com",
+      image: File.open('./app/assets/images/user2.jpg'),
+      introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+    },
+    {
+      name:  "マリアン",
+      email: "test3@test.com",
+      image: File.open('./app/assets/images/user3.jpg'),
+      introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+    },
+    {
+      name:  "ライオン",
+      email: "test4@test.com",
+      image: File.open('./app/assets/images/user4.jpg'),
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+    },
+    {
+      name:  "カーター",
+      email: "test5@test.com",
+      image: File.open('./app/assets/images/user5.jpg'),
+      introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+    },
+    {
+      name:  "カサンドラ",
+      email: "test6@test.com",
+      image: File.open('./app/assets/images/user6.jpg'),
+      introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+    },
+    {
+      name:  "ボブ",
+      email: "test7@test.com",
+      image: File.open('./app/assets/images/user7.jpg'),
+      introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+      password:  "kokikoki",
+      password_confirmation: "kokikoki",
+    },
+  ]
+)
+
+>>>>>>> Stashed changes
 User.all.each do |user|
   user.tweets.create!(
     [
