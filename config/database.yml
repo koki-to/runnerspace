@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  database: runnerspace_production
+  username: runnerspace
+  password: <%= ENV['RUNNERSPACE_DATABASE_PASSWORD'] %>
