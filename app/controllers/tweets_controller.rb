@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :move_to_index, expect: :index
+  # before_action :move_to_index, expect: :index
   before_action :set_tweet, only: [:destroy, :edit, :update, :show]
 
   def index
@@ -42,7 +42,7 @@ class TweetsController < ApplicationController
   end
 
   def search
-    tweets = Tweet.search(params[:keyword])
+    tweets = Tweet.search(params[:keyword]).order("created_at DESC")
     @tweets = tweets.page(params[:page]).per(12)
   end
 

@@ -82,6 +82,3 @@
             = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |f|
               = f.text_field :text, placeholder: "コメントする", class: "text_area", id: "textbox"
               = f.submit "送信", class: "submit", id: "form__submit"
-          - else
-            %h1 コメントの投稿には新規登録/ログインが必要です
-            %h3 <コメント一覧>

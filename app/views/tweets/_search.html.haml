@@ -6,4 +6,4 @@
   %h2 or
   .Search__tag
     = form_with(model: @tweet, url: tweets_path, local: true, method: :get, id: "submit-form") do |f|
-      = f.select :tag_ids, [["タグ検索", 0], ["走行距離", 1], ["運動グッズ", 2], ["大会記録", 3], ["その他", 4]], {}, onchange: "submit(this.form)"
+      = f.select :tag_ids, [["タグ検索", 0], ["走行記録", 1], ["運動グッズ", 2], ["大会記録", 3], ["その他", 4]], {}, onchange: "submit(this.form)"

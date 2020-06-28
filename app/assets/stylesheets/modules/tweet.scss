@@ -320,6 +320,9 @@ body {
   display: flex;
   justify-content: center;
   box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
+  animation-name: fadeup;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
   &__section {
     width: 75%;
     display: flex;
