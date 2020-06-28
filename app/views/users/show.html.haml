@@ -7,7 +7,7 @@
             - if @user.image.present?
               = image_tag @user.image.url
             - else
-              = image_tag "user1"
+              = image_tag "user1.jpg"
           .Privacy__main__top
             .Privacy__main__top__name
               = @user.name
@@ -60,7 +60,7 @@
                     - if tweet.image.present?
                       = image_tag tweet.image.url
                     - else
-                      = image_tag "article1"
+                      = image_tag "article1.jpg"
                 - if tweet.tags.first.name == "走行記録"
                   .Privacy__articles__list__post__tag.color1
                     = tweet.tags.first.name

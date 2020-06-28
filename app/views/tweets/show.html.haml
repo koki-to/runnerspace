@@ -7,7 +7,7 @@
             - if @tweet.image.present?
               = image_tag @tweet.image.url
             - else
-              = image_tag "article1"
+              = image_tag "article1.jpg"
           .Post__section__main__info
             - if @tweet.tags.first.name == "走行記録"
               .Post__section__main__info__tag.color1
@@ -30,7 +30,7 @@
                   - if @tweet.user.image.present?
                     = image_tag @tweet.user.image.url
                   - else
-                    = image_tag "user1"
+                    = image_tag "user1.jpg"
               .Post__section__main__user__left__name
                 = link_to @tweet.user.name, user_path(@tweet.user.id)
             .Post__section__main__user__right
@@ -62,7 +62,7 @@
                       - if comment.user.image.present?
                         = image_tag comment.user.image.url
                       - else
-                        = image_tag "user1"
+                        = image_tag "user1.jpg"
                   .Post__comment__list__host__text
                     %h5= comment.created_at.strftime("%m月%d日 %H時%M分")
                     %p= comment.text
@@ -76,7 +76,7 @@
                       - if comment.user.image.present?
                         = image_tag comment.user.image.url
                       - else
-                        = image_tag "user1"
+                        = image_tag "user1.jpg"
         .Post__comment__button
           - if current_user
             = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |f|

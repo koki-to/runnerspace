@@ -4,7 +4,7 @@
       - if tweet.image.present?
         = image_tag tweet.image.url
       - else
-        = image_tag "article1"
+        = image_tag "article1.jpg"
   - if tweet.tags.first.name == "走行記録"
     .Article__tag.color1
       = tweet.tags.first.name
@@ -26,7 +26,7 @@
           - if tweet.user.image.present?
             = image_tag tweet.user.image.url
           - else
-            = image_tag "user1"
+            = image_tag "user1.jpg"
       .Article__info__user__name
         = link_to tweet.user.name, user_path(tweet.user.id)
     .Article__info__time
