@@ -1,0 +1,147 @@
+@media screen and (max-width: 767px) {
+  .pagination {
+    right: 40%;
+  }
+  .Index__user {
+    &__run {
+      &__bottom {
+        &:before {
+          left: 30px;
+        }
+        &:after {
+          width: 80%;
+          left: 50px;
+        }
+      }
+    }
+    &__info {
+      &__group {
+        width: 100px;
+      }
+    }
+  }
+  .Home {
+    &__top__body {
+      .Input {
+        width: 80vw;
+        &__area {
+          width: 100%;
+          &__left {
+            &__normal {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Rank__content__user {
+    &__left {
+      &__top {
+        &.crown1 {
+          font-size: 30px;
+        }
+        &.crown2 {
+          font-size: 30px;
+        }
+        &.crown3 {
+          font-size: 30px;
+        }
+      }
+      &__buttom {
+        &.rank1 {
+          font-size: 30px;
+          padding: 0;
+        }
+        &.rank2 {
+          font-size: 30px;
+          padding: 0;
+        }
+        &.rank3 {
+          font-size: 30px;
+          padding: 0;
+        }
+        &.rank4 {
+          font-size: 30px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .Home__top__body {
+    .Main__logo {
+      font-size: 36px;
+    }
+    .Main__copy {
+      font-size: 14px;
+    }
+  }
+  .pagination {
+    text-align: center;
+  }
+  .Home__global__section {
+    .Content {
+      padding: 100px 0 0;
+      .Search {
+        display: inline-block;
+        text-align: center;
+        &__title {
+          margin-left: 86px;
+        }
+        &__tag {
+          margin-left: 40px;
+        }
+        h2 {
+          margin: 10px 0 10px 40px;
+        }
+      }
+      .Index {
+        &__user {
+          width: 300px;
+          &__info {
+            display: block;
+            padding: 20px 0;
+            &__icon {
+              margin-left: 16px;
+              img {
+                width: 90px;
+                height: 90px;
+              }
+            }
+            &__group {
+              padding: 0;
+              &__top {
+                display: none;
+              }
+              &__name {
+                width: 120px;
+                text-align: center;
+              }
+            }
+          }
+          &__run {
+            &__top {
+              font-size: 20px;
+              position: static;
+            }
+            &__bottom {
+              font-size: 30px;
+              &::after {
+                content: none;
+              }
+              &::before {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      right: 38%;
+    }
+  }
+}

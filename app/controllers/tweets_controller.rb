@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
-  # before_action :move_to_index, expect: :index
   before_action :set_tweet, only: [:destroy, :edit, :update, :show]
+  before_action :authenticate_user!
 
   def index
     tweets = params[:tag_ids].present? ? Tag.find(params[:tag_ids]).tweets.order("created_at DESC") : Tweet.includes(:user).order("created_at DESC")
@@ -50,10 +50,6 @@ class TweetsController < ApplicationController
   private
     def tweet_params
       params.require(:tweet).permit(:title, :text, :image, :run, :tag_ids).merge(user_id: current_user.id)
-    end
-
-    def move_to_index
-      redirect_to action: :index unless user_signed_in?
     end
 
     def set_tweet
