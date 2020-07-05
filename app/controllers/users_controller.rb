@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :destroy, :update, :show, :followers]
+  before_action :authenticate_user!
   def index
     @user = User.find(current_user.id)
-    @users = User.includes(:tweets).order("created_at DESC").page(params[:page]).per(10)
+    @users = User.includes(:tweets).page(params[:page]).per(10)
   end
 
   def edit
