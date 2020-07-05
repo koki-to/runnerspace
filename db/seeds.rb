@@ -13,7 +13,7 @@ User.create!(
     {
       name:  "koki",
       email: "koki.jam.torigoshi@ezweb.ne.jp",
-      image: File.open('./app/assets/images/user1.jpg'),
+      image: File.open('/assets/images/user1.jpg'),
       introduction: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
       password:  "kokikoki",
       password_confirmation: "kokikoki",

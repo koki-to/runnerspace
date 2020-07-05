@@ -18,7 +18,7 @@ $(function() {
         let html = 
           `<div class="Post__comment__list__host">
             <div class="Post__comment__list__host__image">
-              <a href="/users/${comment.user_id}"><img src="/uploads/user/image/2/user1.jpg"></a>
+              <a href="/users/${comment.user_id}"><img src="/assets/images/user1.jpg"></a>
             </div>
               <div class="Post__comment__list__host__text">
                 <h5>${comment.created_at}</h5>
@@ -49,7 +49,7 @@ $(function() {
               <p>${comment.text}</p>
             </div>
             <div class="Post__comment__list__post__image">
-              <a href="/users/${comment.user_id}"><img src="/uploads/user/image/2/user1.jpg"></a>
+              <a href="/users/${comment.user_id}"><img src="/assets/images/user1.jpg"></a>
             </div>
           </div>`
         return html;
