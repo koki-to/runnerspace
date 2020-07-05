@@ -6,6 +6,7 @@ Tag.create(
     { name: 'その他'},
   ]
 )
+
 require "securerandom"
 User.create!(
   [
