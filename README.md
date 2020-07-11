@@ -1,7 +1,6 @@
 # Runner Spece
-[![Image from Gyazo](https://i.gyazo.com/044aa36912143414c6fd8c62272560d8.gif)](https://gyazo.com/044aa36912143414c6fd8c62272560d8)
+[![Image from Gyazo](https://i.gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672.jpg)](https://gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672)
 
-## 【本番環境】
 ゲストユーザーで簡単ログインできます。  
 http://52.198.187.191/
 
