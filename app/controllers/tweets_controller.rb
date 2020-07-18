@@ -46,6 +46,9 @@ class TweetsController < ApplicationController
     @tweets = tweets.page(params[:page]).per(12)
   end
 
+  def youtube
+  end
+
 
   private
     def tweet_params
