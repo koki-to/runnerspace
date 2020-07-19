@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  resources :events
   resources :videos, only: :index
   resources :ranks, only: :index
 

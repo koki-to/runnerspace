@@ -12,7 +12,7 @@
             .Privacy__main__top__name
               = @user.name
             .Privacy__main__top__star
-              = render partial: "relationships/relationships", locals: {user: @user}
+              = render "relationships/relationships", locals: {user: @user}
           .Privacy__main__bottom
             = @user.introduction
         .Privacy__side
