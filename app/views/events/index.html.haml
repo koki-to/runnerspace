@@ -1,0 +1,26 @@
+.Home__global.img3
+  .Home__global__section
+    .Event
+      = link_to 'イベントを開催する', new_event_path
+    
+    .Content
+      .Index
+        - @event.each do |event|
+          .Index__user
+            .Index__user__info
+              .Index__user__info__icon
+                = link_to event_path(event) do
+                  - if event.image.present?
+                    = image_tag event.image.url
+                  - else
+                    = image_tag "user1.jpg"
+              .Index__user__info__group
+                .Index__user__info__group__top
+                  .Index__user__info__group__top__posts
+                    = "参加者: #{event.users.count}"
+                .Index__user__info__group__name
+                  = link_to event.name, user_path(event.users.ids)
+            .Index__user__run
+              .Index__user__run__top
+                %h2 累計走行距離
+              .Index__user__run__bottom

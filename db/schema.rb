@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_233938) do
+ActiveRecord::Schema.define(version: 2020_07_18_031248) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 2020_06_23_233938) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_comments_on_tweet_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "event_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_users_on_event_id"
+    t.index ["user_id"], name: "index_event_users_on_user_id"
+  end
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+    t.string "address", null: false
+    t.integer "run"
+    t.string "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_events_on_name"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -85,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_06_23_233938) do
 
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
+  add_foreign_key "event_users", "events"
+  add_foreign_key "event_users", "users"
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"
   add_foreign_key "tweet_tags", "tags"
