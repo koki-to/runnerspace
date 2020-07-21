@@ -3,6 +3,8 @@
     .Content
       = render 'search'
       .Articles
+        #city-name
+        #weather
         - @tweets.each do |tweet|
           = render 'tweet', tweet: tweet
     = paginate @tweets
