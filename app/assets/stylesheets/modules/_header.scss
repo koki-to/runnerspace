@@ -1,0 +1,45 @@
+.Header {
+  padding: 0 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  position: fixed;
+  justify-content: space-between;
+  z-index: 2;
+  a {
+    color: white;
+    transition: all 0.5s;
+    &:hover {
+      color: black;
+    }
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    &__logo {
+      font-size: 22px;
+      margin-right: 40px;
+    }
+    .Weather {
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+  }
+  .header__nav {
+    display: flex;
+    align-items: center;
+    &__list {
+      margin-left: 20px;
+      justify-content: flex-end;
+      list-style-type: none;
+      img {
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+        border: 3px solid slategray;
+      }
+    }
+  }
+}

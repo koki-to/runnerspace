@@ -1,18 +1,24 @@
 .Header
-  %h1.header__logo
-    = link_to 'Runner Space', root_path
+  .Header__left
+    .Header__left__logo
+      = link_to 'Runner Space', root_path
+    .Weather
+      .day__weather__now
+        = "現在の天気 : "
+      .dayWeather
+      %img.dayWeatherIcon
+        = "気温 : "
+      .nowTemp
   %ul.header__nav
     -if user_signed_in?
+      %li.header__nav__list
+        = link_to '投稿一覧', tweets_path
       %li.header__nav__list
         = link_to 'ユーザー一覧', users_path
       %li.header__nav__list
         = link_to 'ランキング', ranks_path
       %li.header__nav__list
         = link_to 'ランニングミュージック', videos_path
-      %li.header__nav__list
-        = link_to '投稿一覧', tweets_path
-      %li.header__nav__list
-        = link_to '新規投稿', new_tweet_path
       %li.header__nav__list
         = link_to 'ログアウト', destroy_user_session_path, method: :delete
       %li.header__nav__list 
