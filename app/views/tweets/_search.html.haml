@@ -7,3 +7,5 @@
   .Search__tag
     = form_with(model: @tweet, url: tweets_path, local: true, method: :get, id: "submit-form") do |f|
       = f.select :tag_ids, [["タグ検索", 0], ["走行記録", 1], ["運動グッズ", 2], ["大会記録", 3], ["その他", 4]], {}, onchange: "submit(this.form)"
+  .Search__new
+    = link_to '新規投稿', new_tweet_path

@@ -1,82 +1,10 @@
 body {
   width: 100vw;
   min-height: 100vh;
-  .Header {
-    padding: 0 20px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    position: fixed;
-    justify-content: space-between;
-    z-index: 2;
-    a {
-      color: white;
-      transition: all 0.5s;
-      &:hover {
-        color: black;
-      }
-    }
-    .header__nav {
-      display: flex;
-      align-items: center;
-      &__list {
-        margin-left: 20px;
-        justify-content: flex-end;
-        list-style-type: none;
-        img {
-          height: 55px;
-          width: 55px;
-          border-radius: 50%;
-          border: 3px solid slategray;
-        }
-      }
-    }
-  }
-  
-
   .Content {
     padding: 100px 30px 0;
     overflow: scroll;
     height: 97%;
-    .Search {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
-      h2 {
-        font-size: 20px;
-        color: white;
-      }
-      &__title {
-        height: 4vh;
-        .search-input {
-          border: none;
-          background-color: rgba(255, 255, 255, 0.8);
-          border-radius: 4px;
-          height: 4vh;
-          padding-left: 5px;
-        }
-        .search-btn {
-          border: none;
-          background-color: rgba(255, 255, 255, 0.8);
-          border-radius: 4px;
-          height: 4vh;
-          width: 6vh;
-          margin: 0 20px;
-          color: #5d627b;
-        }
-      }
-      &__tag {
-        margin-left: 20px;
-        select {
-          height: 4vh;
-          border: none;
-          background-color: rgba(255, 255, 255, 0.8);
-          border-radius: 4px;
-          color: #5d627b;
-        }
-      }
-    }
     .Articles {
       display: flex;
       justify-content: center;
