@@ -1,8 +1,8 @@
 # Runner Spece
-[![Image from Gyazo](https://i.gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672.jpg)](https://gyazo.com/2b6b6ffea69ebcd056c9b75b3cc15672)
+[![Image from Gyazo](https://i.gyazo.com/50411bb853d92089237eed91e9b7bb64.jpg)](https://gyazo.com/50411bb853d92089237eed91e9b7bb64)  
 
-ゲストユーザーで簡単ログインできます。  
-http://52.198.187.191/
+「ゲストログイン」で簡単ログインできます。  
+http://runnnerspace.tech./
 
 ## 【このアプリでできること】
 ユーザー登録を行い運動した記録を走行記録として投稿することができます。  
@@ -53,7 +53,7 @@ jQuery
 ・累計走行距離のランキング機能  
 
 ■現在の天気表示機能(API:OpenWeatherMap)  
-・位置取得すると現在時刻の天気と気温が表示する機能(ドメイン取得中のため少々お待ちください)  
+・現在時刻の天気と気温が表示する機能  
 
 ■音楽機能  
 .youtubeの動画を埋め込み機能  
