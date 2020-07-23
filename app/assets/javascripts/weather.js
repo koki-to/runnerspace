@@ -60,28 +60,24 @@ $(document).ready(function () {
 
   //現在の天気データ呼び出し
   $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/weather",
-      dataType: "jsonp",
-      data: "q=Tokyo,jp&appid=" + APIKEY,
+    url: "http://api.openweathermap.org/data/2.5/weather",
+    dataType: "jsonp",
+    data: "q=Tokyo,jp&appid=" + APIKEY,
       //天気データ呼び出し成功時の挙動
-      success: function (data) {
-          if (data.weather[0].main === "Sunny" || data.weather[0].main === "Clear") {
-              $('body').css('background-image', 'url(Sunny.jpg)');
-              $('.dayWeather').text("晴れ");
-          } else if (data.weather[0].main === "Rain") {
-              $('body').css('background-image', 'url(Rain.jpg)');
-              $('.dayWeather').text("雨");
-          } else if (data.weather[0].main === "Clouds") {
-              $('body').css('background-image', 'url(Cloudy.jpg)');
-              $('.dayWeather').text("くもり");
-          } else if (data.weather[0].main === "Snow") {
-              $('body').css('background-image', 'url(Snowy.jpg)');
-              $('.dayWeather').text("雪");
-          }
+    success: function (data) {
+        if (data.weather[0].main === "Sunny" || data.weather[0].main === "Clear") {
+            $('.dayWeather').text("晴れ");
+        } else if (data.weather[0].main === "Rain") {
+            $('.dayWeather').text("雨");
+        } else if (data.weather[0].main === "Clouds") {
+            $('.dayWeather').text("くもり");
+        } else if (data.weather[0].main === "Snow") {
+            $('.dayWeather').text("雪");
+        }
 
-          //各データの表示
-          $('.nowTemp').text((Math.floor(data.main.temp - 273.15) * 10) / 10);
-          $('.dayWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png ');
+        //各データの表示
+        $('.nowTemp').text((Math.floor(data.main.temp - 273.15) * 10) / 10);
+        $('.dayWeatherIcon').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png ');
       }
     })
   }
