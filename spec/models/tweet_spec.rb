@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Tweet do
+RSpec.describe Tweet, type: :model do
   describe '#create' do
     it "入力必須項目が設定されていれば投稿できること" do
       expect(build(:tweet)).to be_valid
