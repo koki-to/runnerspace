@@ -42,9 +42,9 @@
                 = "フォロワー数: #{@followers}"
             .Privacy__side__info__button
               - if user_signed_in? && current_user.id == @user.id
-                - if current_user.id != 2
-                  .Privacy__side__info__button__edit
-                    = link_to "編集", edit_user_path(@user)
+                -# - if current_user.name != "ゲスト"
+                .Privacy__side__info__button__edit
+                  = link_to "編集", edit_user_path(@user)
               - elsif current_user.admin?
                 .Privacy__side__info__button__edit
                   = link_to "編集", edit_user_path(@user)
