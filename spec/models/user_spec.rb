@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe User do
+RSpec.describe User, type: :model do
   describe '#create' do
     it "入力必須項目が設定されていれば有効であること" do
       user = build(:user)
