@@ -2,7 +2,7 @@
 [![Image from Gyazo](https://i.gyazo.com/50411bb853d92089237eed91e9b7bb64.jpg)](https://gyazo.com/50411bb853d92089237eed91e9b7bb64)  
 
 「ゲストログイン」で簡単ログインできます。  
-http://runnnerspace.tech./
+http://52.198.187.191/
 
 ## 【このアプリでできること】
 ユーザー登録を行い運動した記録を走行記録として投稿することができます。  
